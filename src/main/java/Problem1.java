@@ -1,9 +1,23 @@
 // Problem1.java
 public class Problem1 {
     public static ListNode concatenate(ListNode l1, ListNode l2) {
-        // TODO: Implement the concatenate method
-        // This method should concatenate l2 to l1 and return l1
-        // Remember to create new nodes instead of directly linking l1 to l2
-        return null;
+        if (l1 == null) {
+            return l2;
+        }
+        
+        
+        // Traverse to the end of l1
+        while (l1.next != null) {
+            l1 = l1.next;
+        }
+        
+        // Append copies of l2 nodes to l1
+        while (l2 != null) {
+            l1.next = new ListNode(l2.val);
+            l1 = l1.next;
+            l2 = l2.next;
+        }
+        
+        return l1;
     }
 }
